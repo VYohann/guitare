@@ -6,11 +6,11 @@ tablature = [''] * 1
 
 tablature[0] = '''
 E||----------------------|----------------------|----------------------|
-B||--3----3--------------|----------------------|----------------------|
-G||--2----2--------------|----------------------|----------------------|
-D||----------------------|----------------------|--12---------9--------|
-A||-----------------0----|--1---------1---------|-------11------ -7----|
-E||----------------------|-------2---------11---|----------------------|
+B||--3----3--------------|-------3---------3----|----------------------|
+G||--2----2----2----2----|--2---------2---------|-------2---------2----|
+D||------------2----2----|----------------------|--2---------2---------|
+A||----------------------|----------------------|----------------------|
+E||----------------------|----------------------|----------------------|
 '''
 
 def generate_guitar_note(frequency, duration, sample_rate):
@@ -28,7 +28,10 @@ def play(corde, fret, channel):
     if fret < 0:
         print("Numéro de frette invalide. Doit être supérieur ou égal à 0.")
         return
-
+    if channel == 0:
+        pygame.mixer.init()
+        channel = pygame.mixer.Channel(corde)
+        
     frequencies = [82.41, 110.00, 146.83, 196.00, 246.94, 329.63]
     note_freq = frequencies[corde - 1] * 2 ** (fret / 12)
 
@@ -39,12 +42,13 @@ def play(corde, fret, channel):
     # Jouer le son sur le canal spécifié
     channel.play(pygame.sndarray.make_sound(note_wave))
 #exemple
-def play(1, 0, 1)
+#play(corde, fret, channel)   channel = 0 si simple note
+play(1, 0, 0)
 time.sleep(0.5)
-def play(1, 1, 1)
+play(1, 1, 0)
 time.sleep(0.5)
-def play(1, 2, 1)
-time.sleep(0.5)
+play(1, 2, 0)
+time.sleep(0.5)    
 
 def play_tablature(tablature):
     lines = tablature.strip().split('\n')
