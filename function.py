@@ -38,6 +38,13 @@ def play(corde, fret, channel):
     
     # Jouer le son sur le canal spécifié
     channel.play(pygame.sndarray.make_sound(note_wave))
+#exemple
+def play(1, 0, 1)
+time.sleep(0.5)
+def play(1, 1, 1)
+time.sleep(0.5)
+def play(1, 2, 1)
+time.sleep(0.5)
 
 def play_tablature(tablature):
     lines = tablature.strip().split('\n')
