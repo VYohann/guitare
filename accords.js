@@ -1,4 +1,4 @@
-accords = [
+const accords = [
   { "id":1,
     "position":"DO",
     "nom":"C",
