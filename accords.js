@@ -42,4 +42,11 @@ const accords = [
     "accord":[0,1,3,2,3,0],
     "ligne":"None"
   },
+  { "id":7,
+    "position":"DO",
+    "nom":"C7",
+    "depart_fret":0,
+    "accord":[3,5,3,5,3,3],
+    "ligne":[[1,3],[6,3]]
+  },
 ]
